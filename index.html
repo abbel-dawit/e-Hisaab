@@ -198,6 +198,15 @@ textarea.input{min-height:80px;resize:vertical}
 .steps h3{font-size:18px}
 .steps p{color:var(--muted);font-size:14.5px}
 .steps{padding:0;margin:0}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.duo article{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:grid;gap:12px;align-content:start}
+.duo h3{font-size:20px;line-height:1.3}
+.duo ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.duo li{position:relative;padding-left:24px;color:var(--ink-2,inherit)}
+.duo li:before{content:"";position:absolute;left:2px;top:.45em;width:12px;height:7px;border-left:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(-45deg)}
+.duo-tag{justify-self:start;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:var(--brand);background:var(--brand-soft);border-radius:999px;padding:5px 11px}
+.duo-tag.gold{color:#8a5a06;background:#f7ecd6}
+@media (max-width:760px){.duo{grid-template-columns:1fr}}
 .feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .feat div{background:var(--surface);padding:26px;display:grid;gap:10px;align-content:start}
 .feat .fi{width:40px;height:40px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
@@ -803,15 +812,15 @@ button.row.set:hover{background:var(--surface-2)}
     <div class="wrap">
       <div>
         <span class="l-kicker"><svg class="ico" viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n>Built for MoR Directive No. 1142/2026</span></span>
-        <h1 data-i18n data-i18n-html>Every invoice, <em>cleared</em> by the Ministry in seconds.</h1>
-        <p class="lead" data-i18n>e-Hisaab creates, registers and shares tax invoices with an IRN, RRN and QR code from your browser or phone. No fiscal printer, no paper rolls, no scramble at VAT time.</p>
+        <h1 data-i18n data-i18n-html>Every invoice and receipt, <em>cleared</em> by the Ministry in seconds.</h1>
+        <p class="lead" data-i18n>e-Hisaab issues tax invoices and e-receipts, registers each one with the Ministry of Revenues and shares it with a QR code, from your browser or phone. No fiscal printer, no paper rolls, no scramble at VAT time.</p>
         <p class="amh" lang="am">ኤሌክትሮኒክ ደረሰኝ — ቀላል፣ ፈጣን እና ሕጋዊ። · Nagahee elektirooniksii · ኤሌክትሮኒካዊ ቅብሊት</p>
         <div class="l-cta">
           <a class="btn gold" href="#dashboard"><span data-i18n>Try the live demo</span><svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn outline" href="#how" data-i18n>See how it works</a>
         </div>
         <div class="l-proof">
-          <span><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg><span data-i18n>IRN, RRN and QR on every invoice</span></span>
+          <span><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg><span data-i18n>IRN, RRN and QR on every invoice and receipt</span></span>
           <span><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg><span data-i18n>Keeps selling offline for 72 hours</span></span>
           <span><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg><span data-i18n>Amharic, Oromo, Tigrinya and English</span></span>
         </div>
@@ -843,22 +852,56 @@ button.row.set:hover{background:var(--surface-2)}
 
   <div class="l-strip">
     <div class="wrap">
-      <span class="sep"><strong>What every cleared invoice carries:</strong></span>
+      <span class="sep"><strong>What every cleared document carries:</strong></span>
       <span class="sep"><span class="mono">IRN</span> Invoice Registration Number</span>
-      <span class="sep"><span class="mono">RRN</span> Receipt Reference Number</span>
+      <span class="sep"><span class="mono">RRN</span> Receipt Registration Number</span>
       <span class="sep"><span class="mono">QR</span> Scannable verification code</span>
     </div>
   </div>
+
+  <section class="l-sec" id="duo">
+    <div class="wrap">
+      <div class="l-sec-h">
+        <p class="eyebrow" data-i18n>Two documents, one system</p>
+        <h2 data-i18n>e-Invoicing and e-receipts, both registered with the Ministry.</h2>
+        <p>Directive No. 1142/2026 covers the invoice you issue and the receipt for every payment against it. e-Hisaab handles both in the same flow.</p>
+      </div>
+      <div class="duo">
+        <article>
+          <span class="duo-tag">E-INVOICING</span>
+          <h3 data-i18n>Tax invoices, credit notes and debit notes</h3>
+          <ul>
+            <li>Buyer TIN checked, HS codes on goods, VAT worked out per line</li>
+            <li>Signed and cleared by the Ministry before the buyer gets it</li>
+            <li>Returned with its IRN, RRN and a QR code buyers can verify</li>
+            <li>Foreign-currency invoices with the exchange rate and ETB equivalent</li>
+            <li>Rejections shown with the Ministry's code, then fixed and resubmitted</li>
+          </ul>
+        </article>
+        <article>
+          <span class="duo-tag gold">E-RECEIPTS</span>
+          <h3 data-i18n>A registered receipt for every payment</h3>
+          <ul>
+            <li>Cash, bank transfer, telebirr, CBE Birr or credit</li>
+            <li>Each payment gets its own e-receipt with an RRN and QR code</li>
+            <li>Part payments show what was paid before and the balance left</li>
+            <li>Voids need a reason, and the cancellation is registered</li>
+            <li>Withholding receipts issued, and buyers' receipts recorded</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <section class="l-sec">
     <div class="wrap">
       <div class="l-sec-h">
         <p class="eyebrow" data-i18n>Why switch now</p>
         <h2 data-i18n>The Ministry of Revenues has opened e-invoicing onboarding.</h2>
-        <p>Businesses that keep books of account will move to electronic invoice registration on the Ministry's schedule. e-Hisaab gets you there without new hardware.</p>
+        <p>Businesses that keep books of account will move to registered electronic invoices and receipts on the Ministry's schedule. e-Hisaab gets you there without new hardware.</p>
       </div>
       <div class="why">
-        <article><span class="big">100%</span><h3 data-i18n>Guaranteed compliance</h3><p>Every invoice is validated and registered with the Ministry before it reaches your buyer, so your records always match theirs.</p></article>
+        <article><span class="big">100%</span><h3 data-i18n>Guaranteed compliance</h3><p>Every invoice and receipt is validated and registered with the Ministry, and 23 live checks flag anything that needs fixing.</p></article>
         <article><span class="big">0</span><h3 data-i18n>Fiscal printers to maintain</h3><p>Drop the service contracts, paper rolls and repair visits. A phone, tablet or laptop is all a branch needs.</p></article>
         <article><span class="big">1 tap</span><h3 data-i18n>Faster cash flow</h3><p>Send the invoice by email, SMS or Telegram the moment it is registered, with a clean digital audit trail behind it.</p></article>
       </div>
@@ -869,13 +912,13 @@ button.row.set:hover{background:var(--surface-2)}
     <div class="wrap">
       <div class="l-sec-h">
         <p class="eyebrow" data-i18n>How it works</p>
-        <h2 data-i18n>From sale to registered invoice in four steps.</h2>
+        <h2 data-i18n>From sale to registered invoice and receipt in four steps.</h2>
       </div>
       <ol class="steps">
         <li><h3 data-i18n>Register your business</h3><p>Enter your TIN and VAT number. We connect your branches to the Ministry's registration system.</p></li>
         <li><h3 data-i18n>Create the invoice</h3><p>Pick the buyer, add items from your catalogue. VAT and withholding are calculated for you.</p></li>
         <li><h3 data-i18n>The Ministry clears it</h3><p>The invoice is signed and sent. Seconds later it returns with its IRN, RRN and QR code.</p></li>
-        <li><h3 data-i18n>Share and get paid</h3><p>Send it to the buyer by email, SMS or Telegram. Reports for your monthly VAT return build themselves.</p></li>
+        <li><h3 data-i18n>Get paid, receipt registered</h3><p>Record full or part payments by cash, bank, telebirr or CBE Birr. Each payment gets its own registered e-receipt, sent by SMS.</p></li>
       </ol>
     </div>
   </section>
@@ -889,7 +932,10 @@ button.row.set:hover{background:var(--surface-2)}
       <div class="feat">
         <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h8M9 17h5"/></svg></span><h3 data-i18n>Invoice in under a minute</h3><p>A three-step flow: buyer, items, review. Look up any buyer by TIN.</p></div>
         <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><h3 data-i18n>Real-time registration</h3><p>Invoices are validated, signed and registered with IRN, RRN and QR automatically.</p></div>
-        <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/><path d="M3 3l18 18"/></svg></span><h3 data-i18n>Offline mode</h3><p>Power or internet down? Keep issuing. Invoices queue and register when you reconnect.</p></div>
+        <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span><h3 data-i18n>Registered e-receipts</h3><p>One per payment, with its own RRN and QR. Part payments, balances and registered voids.</p></div>
+        <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></span><h3 data-i18n>Compliance centre</h3><p>23 live checks against the Directive, a tamper-evident journal and an audit package.</p></div>
+        <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3 data-i18n>Withholding receipts</h3><p>Issue registered withholding receipts and keep buyers' receipts for your tax credit.</p></div>
+        <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z"/><path d="M3 3l18 18"/></svg></span><h3 data-i18n>Offline mode</h3><p>Power or internet down? Keep issuing. Invoices and receipts queue and register when you reconnect.</p></div>
         <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><path d="m16 15 3 3 3-3"/></svg></span><h3 data-i18n>Credit and debit notes</h3><p>Correct a registered invoice properly, linked to the original for a clean audit trail.</p></div>
         <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3 data-i18n>VAT-ready reports</h3><p>Output VAT, sales by tax category and withholding, by Ethiopian calendar month.</p></div>
         <div><span class="fi"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21v-1a6 6 0 0 1 12 0v1M16 4a4 4 0 0 1 0 8M22 21v-1a6 6 0 0 0-4-5.6"/></svg></span><h3 data-i18n>Branches, users and roles</h3><p>Owners, accountants and cashiers each see only what they need, branch by branch.</p></div>
@@ -903,7 +949,7 @@ button.row.set:hover{background:var(--surface-2)}
         <div>
           <p class="eyebrow" style="color:var(--gold)" data-i18n>Built for real conditions</p>
           <h2 style="margin-top:10px" data-i18n>Power cut in Merkato? Keep selling.</h2>
-          <p>When the connection drops, e-Hisaab issues a temporary QR invoice and queues it. As soon as you are back online it registers everything with the Ministry, well inside the 72-hour window the directive allows.</p>
+          <p>When the connection drops, e-Hisaab issues temporary QR invoices and receipts and queues them. As soon as you are back online it registers everything with the Ministry, well inside the 72-hour window the directive allows.</p>
           <div class="l-cta"><a class="btn gold" href="#dashboard" data-i18n>Try offline mode in the demo</a></div>
         </div>
         <div class="clock" aria-hidden="true">
@@ -926,7 +972,7 @@ button.row.set:hover{background:var(--surface-2)}
           <div class="amt num">ETB 950<small> / month</small></div>
           <ul>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>1 branch, 2 users</li>
-            <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>Up to 500 invoices a month</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>Up to 500 invoices and receipts a month</li>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>Offline mode and SMS sharing</li>
           </ul>
           <a class="btn" href="#dashboard" data-i18n>Try the demo</a>
@@ -936,7 +982,7 @@ button.row.set:hover{background:var(--surface-2)}
           <div class="amt num">ETB 2,900<small> / month</small></div>
           <ul>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>Up to 5 branches, 15 users</li>
-            <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>Unlimited invoices</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>Unlimited invoices and e-receipts</li>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>VAT reports and Excel export</li>
             <li><svg class="ico" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>Roles and audit log</li>
           </ul>
@@ -962,7 +1008,8 @@ button.row.set:hover{background:var(--surface-2)}
       <div class="l-sec-h"><p class="eyebrow" data-i18n>Questions</p><h2 data-i18n>What businesses ask us first.</h2></div>
       <div class="faq">
         <details open><summary>Who has to use electronic invoicing?</summary><p>Directive No. 1142/2026 makes a compliant sales registration system mandatory for taxpayers who keep books of account, following a rollout schedule set by the Ministry of Revenues. VAT-registered large taxpayers are expected first.</p></details>
-        <details><summary>What are the IRN, RRN and QR code?</summary><p>When the Ministry's Electronic Invoice Registration System accepts an invoice it returns an Invoice Registration Number (IRN), a Receipt Reference Number (RRN) and a QR code. Buyers and auditors use them to verify the invoice is genuine.</p></details>
+        <details><summary>Do payment receipts need to be registered too?</summary><p>Yes. Under Directive No. 1142/2026 receipts are registered with the Ministry as well as invoices. e-Hisaab registers every payment as its own e-receipt with a Receipt Registration Number (RRN) and QR code, including part payments, and registers the cancellation if a receipt is voided.</p></details>
+        <details><summary>What are the IRN, RRN and QR code?</summary><p>When the Ministry's Electronic Invoice Registration System accepts an invoice it returns an Invoice Registration Number (IRN), a Receipt Registration Number (RRN) and a QR code. Buyers and auditors use them to verify the invoice is genuine.</p></details>
         <details><summary>What happens if the internet or power goes down?</summary><p>You keep issuing invoices with a temporary QR code. e-Hisaab queues them and registers each one automatically once the connection returns. The directive allows 72 hours after restoration.</p></details>
         <details><summary>Do I still need a fiscal printer?</summary><p>No. Invoices are created and registered digitally. You can still print on any ordinary printer if a buyer asks for paper.</p></details>
         <details><summary>Can it connect to our ERP or POS?</summary><p>Yes. The Enterprise plan includes an API so your existing system can send invoices through e-Hisaab for registration.</p></details>
@@ -973,7 +1020,7 @@ button.row.set:hover{background:var(--surface-2)}
   <section class="l-sec" style="padding-top:0">
     <div class="wrap">
       <div class="l-final">
-        <div><h2 data-i18n>See it working with sample data.</h2><p class="muted" style="margin-top:6px">Create an invoice, register it, go offline, issue a credit note. No sign-up.</p></div>
+        <div><h2 data-i18n>See it working with sample data.</h2><p class="muted" style="margin-top:6px">Create an invoice, register it, take a part payment with a registered e-receipt, go offline. No sign-up.</p></div>
         <a class="btn primary" href="#dashboard" style="min-height:48px;padding:0 22px" data-i18n>Open the live demo</a>
       </div>
     </div>
@@ -2244,7 +2291,7 @@ const A={
  viewRcpt:el=>{const v=inv(el.dataset.id),r=getR(v,el.dataset.r);openLayer(modal("e-Receipt "+r.no,receiptHTML(v,r)+rTechHTML(v,r),`<button class="btn" data-act="openInv" data-id="${v.id}">${ic("left")}${esc(v.no)}</button><span class="grow"></span><button class="btn" data-act="printRcpt" data-id="${v.id}" data-r="${r.no}">${ic("print")}Print</button>${r.status!=="voided"?`<button class="btn primary" data-act="smsRcpt" data-id="${v.id}" data-r="${r.no}">${ic("sms")}Send by SMS</button>`:""}`,"wide"),"rcpt")},
  rVoid:el=>{const v=inv(el.dataset.id),r=getR(v,el.dataset.r);if(!r||r.status==="voided")return;if(!S.online)return toast("Voiding a receipt needs a connection: the cancellation must be registered with the Ministry","cloudoff");
   confirmBox("Void e-receipt "+esc(r.no)+"?",`The cancellation is registered with the Ministry and ${money(r.amount)} goes back on the balance of ${esc(v.no)}. Refund the customer by ${esc(r.method)} separately. This can't be undone.`,"Void receipt",reason=>{if(!reason)return toast("Give a reason to void the receipt","alert");
-   const tm=Date.now();r.status="voided";r.voidAt=new Date(tm).toISOString();r.voidReason=reason;r.cxl="CXL"+digits(10);r.voidBy=meName();syncPaid(v);v.timeline.push({t:tm,label:"E-receipt "+r.no+" voided · "+reason+" · cancellation "+r.cxl});jAppend("RECEIPT_VOIDED",rData(v,r),tm);audit("Voided e-receipt "+r.no);save();render();if(layer==="inv")openInvoice(v.id);toast("E-receipt "+r.no+" voided")},true,"Reason (required)")},
+   const tm=Date.now();r.status="voided";r.voidAt=new Date(tm).toISOString();r.voidReason=reason;r.cxl="CXL"+digits(10);r.voidBy=meName();syncPaid(v);v.timeline.push({t:tm,label:"E-receipt "+r.no+" voided · "+reason+" · cancellation "+r.cxl});jAppend("RECEIPT_VOIDED",rData(v,r),tm);audit("Voided e-receipt "+r.no);save();render();openInvoice(v.id);toast("E-receipt "+r.no+" voided")},true,"Reason (required)")},
  payNow:el=>payModal(el.dataset.id),
  tillF:el=>{U.tf=el.dataset.v;if(el.dataset.v==="all")U.tq="";render()},
  printDay:()=>{audit("Printed day summary");save();printHTML(daySummaryHTML())},
